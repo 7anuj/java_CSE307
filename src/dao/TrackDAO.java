@@ -1,6 +1,6 @@
-package dao;
+package src.dao;
 
-import db.DBConnection;
+import src.db.DBConnection;
 import java.sql.*;
 
 public class TrackDAO {
@@ -47,5 +47,20 @@ public class TrackDAO {
             System.out.println("Error deleting track: " + e.getMessage());
         }
     }
-}
 
+    // New method to search for a song by its title
+    public ResultSet searchTrackByTitle(String title) {
+        try {
+            Connection con = DBConnection.getConnection();
+            String query = "SELECT * FROM Track WHERE title = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, title);
+            return stmt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+        
+    
+}

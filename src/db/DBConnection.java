@@ -1,13 +1,13 @@
-package db;
+package src.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/python_songs";
+    private static final String URL = "jdbc:mysql://localhost:3306/java_songs";
     private static final String USER = "root";
-    private static final String PASSWORD = ""; // your actual password
+    private static final String PASSWORD = "P@sswordfortanuj123"; // your actual password
 
     public static Connection getConnection() throws SQLException {
         try {
